@@ -1,15 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="description" content="Amine Borz - Développement Digital Student and Junior Web Developer Portfolio">
     <title>Amine Borz | Developer Portfolio</title>
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -17,230 +14,374 @@
             scroll-behavior: smooth;
         }
 
-        body {
-            background: #0d1117;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        :root {
+            --bg: #080d18;
+            --card: #111a2b;
+            --blue: #58a6ff;
+            --cyan: #38d9ff;
+            --white: #ffffff;
+            --gray: #a5b1c2;
+            --border: rgba(255,255,255,0.09);
         }
 
-      
+        body {
+            background: var(--bg);
+            color: var(--white);
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
 
         header {
-            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #30363d;
-            background: #0d1117;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 20px 9%;
+            background: rgba(8,13,24,0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
         }
 
         .logo {
-            color: #58a6ff;
-            font-size: 26px;
+            font-size: 27px;
             font-weight: bold;
+            color: var(--blue);
+            letter-spacing: 2px;
         }
 
         nav {
             display: flex;
-            gap: 20px;
+            gap: 28px;
         }
 
         nav a {
-            color: #c9d1d9;
-            text-decoration: none;
+            color: var(--gray);
+            font-size: 14px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #58a6ff;
+            color: var(--cyan);
         }
-
-       
 
         .hero {
-            min-height: 85vh;
+            min-height: 90vh;
+            padding: 80px 9%;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 40px 20px;
+            justify-content: space-between;
+            gap: 50px;
+            background:
+                radial-gradient(circle at 80% 45%, rgba(30,100,200,0.25), transparent 40%),
+                #080d18;
         }
 
-        .hero h3 {
-            color: #58a6ff;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
+        .hero-content {
+            max-width: 650px;
+            animation: fadeUp 1s ease;
+        }
+
+        .welcome {
+            color: var(--cyan);
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 55px;
-            margin-bottom: 15px;
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.2;
+            margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: #58a6ff;
+            color: var(--blue);
         }
 
-        .hero p {
-            color: #8b949e;
+        .hero-description {
+            color: var(--gray);
             font-size: 18px;
+        }
+
+        .hero-description strong {
+            color: var(--white);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 32px;
         }
 
         .button {
             display: inline-block;
-            margin-top: 30px;
-            padding: 13px 28px;
-            background: #238636;
-            color: white;
-            text-decoration: none;
+            padding: 13px 25px;
             border-radius: 8px;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        .button:hover {
-            background: #2ea043;
-            transform: translateY(-3px);
+        .primary {
+            background: var(--blue);
+            color: #08111f;
         }
 
-        
+        .secondary {
+            border: 1px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(88,166,255,0.2);
+        }
+
+        .profile-container {
+            width: 320px;
+            height: 320px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            padding: 7px;
+            background: linear-gradient(135deg, #58a6ff, #0d47a1, #38d9ff);
+            box-shadow:
+                0 0 30px rgba(56,166,255,0.35),
+                0 0 80px rgba(56,166,255,0.15);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #080d18;
+            background: #0b1425;
+        }
 
         section {
-            padding: 80px 10%;
+            padding: 90px 9%;
             text-align: center;
         }
 
-        section h2 {
-            color: #58a6ff;
-            font-size: 32px;
-            margin-bottom: 30px;
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 12px;
         }
 
-       
+        .section-title span {
+            color: var(--blue);
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 45px;
+        }
 
         .about-text {
-            max-width: 700px;
+            max-width: 800px;
             margin: auto;
-            color: #c9d1d9;
+            padding: 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            color: var(--gray);
             font-size: 17px;
         }
 
-       
+        .about-text strong {
+            color: var(--blue);
+        }
 
         .skills-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 18px;
         }
 
         .skill {
-            background: #161b22;
-            border: 1px solid #30363d;
-            padding: 15px 25px;
-            border-radius: 8px;
-            color: #58a6ff;
+            min-width: 120px;
+            padding: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--blue);
+            font-weight: bold;
             transition: 0.3s;
         }
 
         .skill:hover {
-            border-color: #58a6ff;
-            transform: translateY(-5px);
+            transform: translateY(-7px);
+            border-color: var(--blue);
+            box-shadow: 0 8px 25px rgba(88,166,255,0.1);
         }
 
-       
         .projects-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
         }
 
         .project-card {
-            background: #161b22;
-            border: 1px solid #30363d;
+            text-align: left;
+            background: var(--card);
+            border: 1px solid var(--border);
             padding: 30px;
-            border-radius: 12px;
-            width: 300px;
+            border-radius: 15px;
             transition: 0.3s;
         }
 
         .project-card:hover {
-            transform: translateY(-7px);
-            border-color: #58a6ff;
+            transform: translateY(-8px);
+            border-color: var(--blue);
+        }
+
+        .project-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
         }
 
         .project-card h3 {
-            color: #58a6ff;
-            margin-bottom: 15px;
+            color: var(--blue);
+            margin-bottom: 12px;
         }
 
         .project-card p {
-            color: #8b949e;
-            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 20px;
         }
 
         .project-card span {
-            color: #58a6ff;
-            font-size: 14px;
+            color: var(--cyan);
+            font-size: 13px;
         }
 
-       
-
-        .contact-text {
-            color: #8b949e;
-            font-size: 18px;
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            padding: 45px 25px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
         }
 
-        
+        .contact-box p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
 
         footer {
             text-align: center;
-            padding: 25px;
-            border-top: 1px solid #30363d;
-            color: #8b949e;
+            padding: 30px 15px;
+            border-top: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 14px;
         }
 
-        
+        footer span {
+            color: var(--blue);
+        }
 
-        @media (max-width: 700px) {
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 65px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .projects-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
             header {
                 flex-direction: column;
                 gap: 15px;
-                padding: 20px;
+                padding: 17px;
             }
 
             nav {
+                gap: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 12px;
             }
 
-            .hero h1 {
-                font-size: 36px;
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 65px 20px;
+            }
+
+            .profile-container {
+                width: 210px;
+                height: 210px;
             }
 
             section {
-                padding: 60px 20px;
+                padding: 65px 20px;
             }
 
+            .section-title {
+                font-size: 29px;
+            }
+
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text {
+                padding: 22px;
+            }
         }
-
     </style>
-
 </head>
 
 <body>
 
-    
-
     <header>
-
         <div class="logo">BORZ.</div>
 
         <nav>
@@ -250,175 +391,187 @@
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
-
     </header>
-
-
-    
 
     <div class="hero" id="home">
 
-        <h3>WELCOME TO MY PORTFOLIO</h3>
+        <div class="hero-content">
+            <div class="welcome">WELCOME TO MY PORTFOLIO</div>
 
-        <h1>Hi, I'm <span>Amine Borz</span> 👋</h1>
+            <h1>
+                Hi, I'm <span>Amine Borz</span> 👋
+            </h1>
 
-        <p>
-            Développement Digital Student
-            <br>
-            Junior Web Developer
-            <br>
-            Learning. Building. Improving.
-        </p>
+            <p class="hero-description">
+                <strong>Développement Digital Student</strong>
+                <br>
+                Junior Web Developer
+                <br>
+                Learning. Building. Improving.
+            </p>
 
-        <a href="#about" class="button">
-            Discover More
-        </a>
+            <div class="hero-buttons">
+                <a href="#projects" class="button primary">
+                    Explore My Work
+                </a>
+
+                <a href="#contact" class="button secondary">
+                    Contact Me
+                </a>
+            </div>
+        </div>
+
+        <div class="profile-container">
+            <img src="images/profile.jpeg" alt="Amine Borz">
+        </div>
 
     </div>
 
-
-    
-
     <section id="about">
 
-        <h2>About Me</h2>
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Get to know me
+        </p>
 
         <div class="about-text">
-
             <p>
-                Hello! My name is Amine Borz.
-
-                I'm a Développement Digital student from Morocco
+                Hello! My name is <strong>Amine Borz</strong>.
+                I'm a Développement Digital student from Morocco,
                 passionate about programming and technology.
+
+                <br><br>
 
                 I'm currently learning Web Development,
                 Python, PHP and SQL.
 
+                <br><br>
+
                 My goal is to become a professional developer
                 and build useful digital projects.
             </p>
-
         </div>
 
     </section>
 
-
-    
-
     <section id="skills">
 
-        <h2>My Skills</h2>
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Technologies I'm currently learning
+        </p>
 
         <div class="skills-container">
 
             <div class="skill">HTML</div>
-
             <div class="skill">CSS</div>
-
             <div class="skill">Python</div>
-
             <div class="skill">PHP</div>
-
             <div class="skill">SQL</div>
-
             <div class="skill">Git</div>
-
             <div class="skill">GitHub</div>
-
             <div class="skill">Bootstrap</div>
 
         </div>
 
     </section>
 
-
-    
-
     <section id="projects">
 
-        <h2>My Projects</h2>
+        <h2 class="section-title">
+            My <span>Projects</span>
+        </h2>
+
+        <p class="section-subtitle">
+            Some of my learning experiences
+        </p>
 
         <div class="projects-container">
 
             <div class="project-card">
+                <div class="project-icon">🌐</div>
 
                 <h3>My First Portfolio</h3>
 
                 <p>
-                    A personal portfolio website
-                    created to present my skills
-                    and introduce myself.
+                    A personal portfolio website created
+                    to present my skills and introduce myself.
                 </p>
 
                 <span>HTML • CSS</span>
-
             </div>
 
-
             <div class="project-card">
+                <div class="project-icon">💻</div>
 
                 <h3>Git Learning Project</h3>
 
                 <p>
-                    My first experience with Git
-                    and GitLab, learning how to
-                    manage code and repositories.
+                    My first experience with Git and GitLab,
+                    learning how to manage code and repositories.
                 </p>
 
                 <span>Git • GitLab</span>
-
             </div>
 
-
             <div class="project-card">
+                <div class="project-icon">🚀</div>
 
                 <h3>Future Projects</h3>
 
                 <p>
                     More projects are coming soon.
-                    I'm always learning and
-                    improving my programming skills.
+                    I'm always learning and improving my skills.
                 </p>
 
                 <span>Coming Soon</span>
-
             </div>
 
         </div>
 
     </section>
 
-
-    
-
     <section id="contact">
 
-        <h2>Contact Me</h2>
+        <h2 class="section-title">
+            Contact <span>Me</span>
+        </h2>
 
-        <p class="contact-text">
-            Let's connect and build something together!
+        <p class="section-subtitle">
+            Let's connect
         </p>
 
-        <a
-            href="https://github.com/aminoxaminox444-art"
-            class="button"
-            target="_blank"
-            rel="noopener noreferrer">
+        <div class="contact-box">
 
-            Visit My GitHub
+            <p>
+                Let's connect and build something together!
+                <br>
+                You can find me on GitHub.
+            </p>
 
-        </a>
+            <a
+                href="https://github.com/aminoxaminox444-art"
+                class="button primary"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Visit My GitHub
+            </a>
+
+        </div>
 
     </section>
-
-
-    
 
     <footer>
 
         <p>
-            © 2026 Amine Borz.
-            All Rights Reserved.
+            © 2026 <span>Amine Borz</span>. All Rights Reserved.
         </p>
 
         <p>
@@ -428,5 +581,4 @@
     </footer>
 
 </body>
-
 </html>
